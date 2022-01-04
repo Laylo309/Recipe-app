@@ -55,3 +55,5 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'bulma-rails', '~> 0.9.2'
 
 gem 'cancancan'
+gem 'solargraph'
+

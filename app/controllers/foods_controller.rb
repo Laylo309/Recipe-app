@@ -6,22 +6,18 @@ class FoodsController < ApplicationController
     @foods = Food.all
   end
 
-  def show
-    @food = Food.find(params[:id])
-  end
-
   def new
     @food = Food.new
     @current_user = current_user
   end
 
   def create
-    @food = Food.new()
+    @food = Food.new(food_params)
 
       if @food.save
         redirect_to foods_url, notice: "Food was successfully created." 
       else
-       render :new
+        flash[:alert] = 'Error: Food is not published'
       end
   end
 

@@ -3,57 +3,45 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.2'
 
-gem 'rails', '~> 7.0.0'
-
-gem 'sprockets-rails'
-
+gem 'bootsnap', '>= 1.4.4', require: false
+gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
-
 gem 'puma', '~> 5.0'
-
-gem 'importmap-rails'
-
-gem 'turbo-rails'
-
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem 'stimulus-rails'
-
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'jbuilder'
-
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', require: false
-
-# Use Sass to process CSS
-# gem "sassc-rails"
-
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
+gem 'sass-rails', '>= 6'
+gem 'turbolinks', '~> 5'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'webpacker', '~> 5.0'
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'web-console'
+  gem 'listen', '~> 3.3'
+  gem 'rack-mini-profiler', '~> 2.0'
+  gem 'spring'
+  gem 'web-console', '>= 4.1.0'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
+  gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
 
-gem 'devise'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'font_awesome5_rails'
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'cancancan'
+gem 'devise'
+gem 'coffee-script-source', '~> 1.11', '>= 1.11.1'
 
 gem 'bulma-rails', '~> 0.9.2'
 
-gem 'cancancan'
-gem 'solargraph'
 

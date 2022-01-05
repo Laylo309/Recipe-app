@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_food, only: %i[ show destroy ]
+  before_action :set_food, only: %i[show destroy]
 
   def index
     @foods = Food.all
@@ -14,27 +14,27 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
 
-      if @food.save
-        redirect_to foods_url, notice: "Food was successfully created." 
-      else
-        flash[:alert] = 'Error: Food is not published'
-      end
+    if @food.save
+      redirect_to foods_url, notice: 'Food was successfully created.'
+    else
+      flash[:alert] = 'Error: Food is not published'
+    end
   end
 
   def destroy
     @food.destroy
 
-    redirect_to foods_url, notice: "Food was successfully destroyed." 
+    redirect_to foods_url, notice: 'Food was successfully destroyed.'
   end
 
   private
 
-    def set_food
-      @food = Food.find(params[:id])
-    end
+  def set_food
+    @food = Food.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def food_params
-      params.require(:food).permit(:name, :measurement_unit, :price)
-    end
+  # Only allow a list of trusted parameters through.
+  def food_params
+    params.require(:food).permit(:name, :measurement_unit, :price)
+  end
 end

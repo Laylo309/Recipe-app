@@ -20,11 +20,11 @@ group :development, :test do
 end
 
 group :development do
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :test do
@@ -39,9 +39,7 @@ gem 'font_awesome5_rails'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'cancancan'
-gem 'devise'
 gem 'coffee-script-source', '~> 1.11', '>= 1.11.1'
+gem 'devise'
 
 gem 'bulma-rails', '~> 0.9.2'
-
-

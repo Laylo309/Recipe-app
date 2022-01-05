@@ -1,4 +1,5 @@
 class RecipeFoodsController < ApplicationController
+  load_and_authorize_resource
 
   def new
     @recipe_food = RecipeFood.new
@@ -21,16 +22,17 @@ class RecipeFoodsController < ApplicationController
     @recipe_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipe_foods_url, notice: "Recipe food was successfully destroyed." }
+      format.html { redirect_to recipe_foods_url, notice: 'Recipe food was successfully destroyed.' }
     end
   end
 
   private
-    def set_recipe_food
-      @recipe_food = RecipeFood.find(params[:id])
-    end
 
-    def recipe_food_params
-      params.require(:recipe_food).permit(:quantity)
-    end
+  def set_recipe_food
+    @recipe_food = RecipeFood.find(params[:id])
+  end
+
+  def recipe_food_params
+    params.require(:recipe_food).permit(:quantity)
+  end
 end

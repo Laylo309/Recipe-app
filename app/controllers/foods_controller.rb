@@ -1,9 +1,9 @@
 class FoodsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_food, only: %i[show destroy]
 
   def index
-    @foods = Food.all
+    @current_user = current_user
+    @foods = current_user.foods.all
   end
 
   def new

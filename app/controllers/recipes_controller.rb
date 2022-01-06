@@ -24,7 +24,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  # DELETE /recipes/1 
+  # DELETE /recipes/1
   def destroy
     recipe = Recipe.find(params[:id])
     if recipe.destroy

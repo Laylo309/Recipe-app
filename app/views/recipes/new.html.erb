@@ -1,5 +1,9 @@
-<div class="container form p-2 my-4 border border-dark bg-light">
+<%
+=begin%>
+ <div class="container form p-2 my-4 border border-dark bg-light">
   <div class="wrapper">
-    <%= render "form", recipe: @recipe %>
+    <%= render "_partials/modals/recipe-modal", recipe: @recipe %>
   </div>
-</div>
+</div> 
+<%
+=end%>

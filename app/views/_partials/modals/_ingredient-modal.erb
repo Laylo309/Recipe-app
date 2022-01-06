@@ -1,0 +1,35 @@
+<%if recipe.user.id = current_user.id%>
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recipeModal">
+  Add Ingredient
+</button>
+<%end%>
+
+<!-- Ingredient pop-up -->
+<div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="recipeModalLabel">Add new ingredient</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <%= form_with url: recipe_recipe_foods_path(@recipe.id), method: :post  do |form| %>
+              <div class="form-group">
+		            <label for="food" class="form-label mr-4">Food</label>
+		            <%= form.select :food_id, current_user.foods.map { |food| [food.name, food.id]} ,required: true, class: "form-control" %>              </div>
+              <div class="mb-3">
+		            <label for="quantity" class="form-label">Quantity</label>
+		            <%= form.text_field :quantity, required: true, class: "form-control"%>
+	            </div>
+                <br>
+	            <div class="text-end mt-3">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%= form.submit 'Save ingredient', class: "btn btn-success" %>
+            <% end %>
+          </div>   
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

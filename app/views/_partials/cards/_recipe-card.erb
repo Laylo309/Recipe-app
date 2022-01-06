@@ -1,17 +1,16 @@
 <div class="card m-3" style="max-width: 540px;">
   <div class="row g-0">
-    <div class="col-md-3">
+    <div class="col-md-4">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9jR7bUx0LK6S4IWbxSaaSdJxE1sD9ZcdmeA&usqp=CAU" class="img-fluid h-100 object-fit" alt="recipe_image">
     </div>
-    <div class="col-md-3">
+    <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title display-7 fw-bold"><%= recipe.name %></h5>
-         <%= render partial: '_partials/buttons/delete-recipe', locals: { recipe: recipe} %>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card-body">
         <p class="card-text"><%= recipe.description%>.</p>
+        <div>
+         <%= render partial: '_partials/buttons/delete-recipe', locals: { recipe: recipe} %>
+         <%= render partial: '_partials/buttons/recipe-detail', locals: { recipe: recipe} %>
+        </div>
       </div>
     </div>
   </div>

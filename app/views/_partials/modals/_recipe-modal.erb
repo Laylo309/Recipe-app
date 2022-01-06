@@ -1,5 +1,5 @@
-<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#recipeModal">
-  Add new recipe
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recipeModal">
+  New recipe
 </button>
 
 <!-- Modal -->
@@ -11,7 +11,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-            <%= form_with scope: :recipe do |form| %>
+            <%= form_with scope: :recipe, url: recipes_path, method: :post  do |form| %>
                 <div class="mb-3">
 		            <label for="name" class="form-label">Name</label>
 		            <%= form.text_field :name, required: true, autofocus: true, class: "form-control", id: "name"%>

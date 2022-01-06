@@ -1,9 +1,9 @@
-<h1>New recipe</h1>
-
-<%= render "form", recipe: @recipe %>
-
-<br>
-
-<div>
-  <%= link_to "Back to recipes", recipes_path %>
-</div>
+<%
+=begin%>
+ <div class="container form p-2 my-4 border border-dark bg-light">
+  <div class="wrapper">
+    <%= render "_partials/modals/recipe-modal", recipe: @recipe %>
+  </div>
+</div> 
+<%
+=end%>

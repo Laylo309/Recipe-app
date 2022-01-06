@@ -1,42 +1,44 @@
-<%= form_with(model: recipe) do |form| %>
-  <% if recipe.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+<div class= "w-100 mt-4 ml-5">
+  <%= form_with(model: recipe) do |form| %>
+    <% if recipe.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
-      <ul>
-        <% recipe.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% recipe.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field w-50">
+      <%= form.label :name, style: "label" %>
+      <%= form.text_field :name, class: "form-control", placeholder: "Recipe title" %>
+    </div>
+
+    <div class="field w-50">
+      <%= form.label :preparation_time, style: "display: block" %>
+      <%= form.text_field :preparation_time, class: "form-control input", type: "time"%>
+    </div>
+
+    <div class="field w-50">
+      <%= form.label :cooking_time, style: "display: block" %>
+      <%= form.text_field :cooking_time, class: "form-control ", type: "time"%>
+    </div>
+
+    <div class="field w-50">
+      <%= form.label :description, style: "display: block" %>
+      <%= form.text_area :description, class: "textarea", placeholder: "write your recipe here" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :public, class: "checkbox" %>
+      <%= form.check_box :public %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: "button is-success is-focused mb-2" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :preparation_time, style: "display: block" %>
-    <%= form.number_field :preparation_time %>
-  </div>
-
-  <div>
-    <%= form.label :cooking_time, style: "display: block" %>
-    <%= form.number_field :cooking_time %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :public, style: "display: block" %>
-    <%= form.check_box :public %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

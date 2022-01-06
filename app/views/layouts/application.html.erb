@@ -20,7 +20,13 @@
     <% if user_signed_in? %>
       <%= render "_partials/navbar" %>
     <%end%>
-    <%= render partial: "_partials/flash"%>
+    <%# render partial: "_partials/flash"%>
+    <% if notice %>
+      <p class="alert alert-primary"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -17,15 +17,14 @@
       <%= form.text_field :name, class: "form-control", placeholder: "Recipe title" %>
     </div>
 
-    <div class="field w-50">
-      <%= form.label :preparation_time, style: "display: block" %>
-      <%= form.text_field :preparation_time, class: "form-control input", type: "time"%>
-    </div>
-
-    <div class="field w-50">
-      <%= form.label :cooking_time, style: "display: block" %>
-      <%= form.text_field :cooking_time, class: "form-control ", type: "time"%>
-    </div>
+      <div class="mb-3">
+		            <label for="name" class="form-label">Preparation time (Minutes)</label>
+		            <%= form.text_field :preparation_time, required: true, class: "form-control", id: "preparation_time"%>
+	            </div>
+                <div class="mb-3">
+		            <label for="name" class="form-label">Cooking time (Minutes)</label>
+		            <%= form.text_field :cooking_time, required: true, class: "form-control", id: "cooking_time"%>
+	            </div>
 
     <div class="field w-50">
       <%= form.label :description, style: "display: block" %>

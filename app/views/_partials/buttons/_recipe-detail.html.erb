@@ -1,0 +1,5 @@
+<% if can? :read, recipe %>
+  <%= link_to recipe_path(recipe.id), class: "btn btn-warning w-10 my-2 align-self-end" do%>
+    <span>See detail</span>
+  <% end %>
+<% end %>

@@ -1,11 +1,15 @@
-
-<h1>Recipes</h1>
-  <%= link_to "Add recipe", new_recipe_path, {class: "btn btn-success w-25 mt-5 mb-2"} %>
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p>
-      <%= link_to "Show this recipe", recipe %>
-    </p>
+<div class="m-3">
+    <%= render partial: "_partials/modals/recipe-modal" %><br>
+</div>
+<h1 class="m-3">Your List Of Recipes</h1>
+<div class="container">
+  <div class="row">
+    <%if @recipes.empty?%>
+     <p class="m-3 fw-bold">Your recipes list is empty try to add new recipe</p>
+    <%else%>
+      <% @recipes.each do |recipe| %>
+        <%= render "_partials/cards/recipe-card", recipe: recipe %>
+      <% end %>
   <% end %>
 </div>
+

@@ -1,5 +1,5 @@
 {
-  "name": "Recipe-app",
+  "name": "recipe-app",
   "private": true,
   "dependencies": {
     "@client-side-validations/simple-form": "^0.3.1",

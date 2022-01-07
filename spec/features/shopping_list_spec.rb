@@ -15,10 +15,10 @@ RSpec.feature 'Check for ingredients presence', type: :feature do
   end
 
   scenario 'show the correct value' do
-    expect(page).to have_content "$ 5.0"
+    expect(page).to have_content '$ 5.0'
   end
 
   scenario 'show the Total' do
-    expect(page).to have_content "Total"
+    expect(page).to have_content 'Total'
   end
 end

@@ -11,7 +11,7 @@ RSpec.feature 'Check for ingredients presence', type: :feature do
   end
 
   scenario 'Should show the correct quantity' do
-    expect(page).to have_content "$ 5"
+    expect(page).to have_content '$ 5'
   end
 
   scenario 'Should allow the user to delete the ingredient' do

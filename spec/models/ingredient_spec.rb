@@ -11,18 +11,18 @@ RSpec.describe Recipe, type: :model do
 
   before :each do
     @recipe = Recipe.create(
-        name: 'Anything',
-        preparation_time: 30,
-        cooking_time: 50,
-        description: 'Delicious recipe',
-        public: true,
-        user_id: 1
-      )
+      name: 'Anything',
+      preparation_time: 30,
+      cooking_time: 50,
+      description: 'Delicious recipe',
+      public: true,
+      user_id: 1
+    )
     @food = Food.create(
-        name: "apple",
-        measurement_unit: "Kg",
-        price: 10,
-        user_id: 1
+      name: 'apple',
+      measurement_unit: 'Kg',
+      price: 10,
+      user_id: 1
     )
   end
 
@@ -45,7 +45,6 @@ RSpec.describe Recipe, type: :model do
     expect(subject).to_not be_valid
   end
 
-  
   it 'is not valid with negative quantity' do
     subject.quantity = -1
     expect(subject).to_not be_valid

@@ -10,7 +10,7 @@ def login_user
   @user = User.create(
     name: 'John Smith',
     email: 'correct@email.com',
-    password: 'correctpassword',
+    password: 'correctpassword'
   )
   @recipe = Recipe.create(
     user_id: @user.id,
@@ -38,8 +38,6 @@ def login_user
   fill_in 'Password', with: 'correctpassword'
   click_button 'Log in'
 end
-
-
 
 begin
   ActiveRecord::Migration.maintain_test_schema!

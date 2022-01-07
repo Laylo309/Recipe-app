@@ -1,0 +1,9 @@
+
+<div class="container">
+    <h1 class="display-3 fw-bold my-4 text-center">Your Shopping List</h1>
+    <% @recipes.each do |recipe|%>
+          <% if recipe.recipe_foods.any? %>
+           <%= render partial: "shopping-list", locals: {recipe: recipe} %>
+          <%end%>
+    <%end%>
+</div>

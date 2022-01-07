@@ -1,0 +1,38 @@
+  <div class="container d-flex flex-column">
+    <div class="d-flex my-5">
+      <h2 class="fw-100 mr-4">Recipe Name: <%= recipe.name.capitalize%></h2>
+      <%= link_to recipe_path(recipe.id), class: "btn btn-primary" do%>
+        <span>Back To Recipe</span>
+        <%end%>
+    </div>
+    <h3 class="my-5">Shopping List</h3>
+
+    <table class="table table-info table-striped w-100 text-center mb-5">
+        <thead>
+          <tr>
+            <th scope="col">Food</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+      <% if recipe.recipe_foods.any? %>
+        <% recipe.recipe_foods.each do |item|%>
+          <tr>
+            <th scope="row"><%= item.food.name%></th>
+            <td><%= item.quantity%><%= item.food.measurement_unit%></td>
+            <td>$ <%= item.food.price * item.quantity%></td>
+          </tr>
+         <%end%>
+          <tr>
+            <td colspan="2" class="table-active">Amount of items to buy</td>
+            <td><%= recipe.recipe_foods.count %> items</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="table-active">Total: </td>
+            <td>$ <%=  total(recipe.recipe_foods) %></td>
+          </tr>
+     <%end%>
+      </tbody>
+    </table>
+  </div>  

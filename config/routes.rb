@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   
   resources :foods, only: [:index, :new, :create, :destroy]
-
   resources :recipe_foods, only: %i[edit update destroy create]
+
+  get 'general_shopping_list', to: 'general_shopping_lists#index', as: 'general_shopping_list'
 end

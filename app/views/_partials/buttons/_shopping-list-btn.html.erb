@@ -1,0 +1,5 @@
+<% if can? :read, recipe %>
+  <%= link_to general_shopping_list_path, class: "btn btn-warning py-3 w-10 my-2 align-self-end" do%>
+    <span>Generate shopping list</span>
+  <% end %>
+<% end %>

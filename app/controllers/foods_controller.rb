@@ -13,7 +13,6 @@ class FoodsController < ApplicationController
 
   def create
     @food = current_user.foods.new(food_params)
-
     if @food.save
       redirect_to foods_url, notice: 'Food was successfully created.'
     else
@@ -23,7 +22,6 @@ class FoodsController < ApplicationController
 
   def destroy
     @food.destroy
-
     redirect_to foods_url, notice: 'Food was successfully destroyed.'
   end
 

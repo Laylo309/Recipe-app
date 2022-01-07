@@ -1,6 +1,6 @@
 <%= form_with(model: food) do |form| %>
   <% if food.errors.any? %>
-    <div style="color: red">
+    <div>
       <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
 
       <ul>
@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
+  <div class="field m-5">
+    <%= form.label :name, style: "label" %>
     <%= form.text_field :name %>
   </div>
 

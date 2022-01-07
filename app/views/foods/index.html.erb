@@ -1,9 +1,9 @@
-<div>
-<%= link_to "Add food", new_food_path, class: ""%>
+<div class = "is-flex is-justify-content-end">
+<%= link_to "Add food", new_food_path, class: "button is-info is-dark m-4"%>
 </div>
 
-<div>
-  <table>
+<div class="table-container m-3">
+  <table class="table is-bordered is-striped is-hoverable is-fullwidth ">
     <thread>
       <tr>
         <th>Food</th>
@@ -16,11 +16,10 @@
     <tbody>
       <% @foods.each do |food| %>
         <tr>
-        <td>Food</td>
-        <td>Measurement unit</td>
-        <td>Unit price</td>
-        <td>Actions</td>
-         <td><%= link_to "Delete", food, method: :delete%></td>
+        <td><%=food.name%></td>
+        <td><%=food.measurement_unit%></td>
+        <td><%=food.price%></td>
+         <td><%= link_to "Delete", food, method: :delete ,class: "button is-danger is-small is-hover"%></td>
       </tr>
       <% end %>
     </tbody>

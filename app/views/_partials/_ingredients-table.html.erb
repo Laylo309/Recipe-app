@@ -15,7 +15,7 @@
       <td><%= ing.quantity%><%= ing.food.measurement_unit%></td>
       <td>$ <%= ing.food.price * ing.quantity%></td>
       <td><%= render partial: "_partials/buttons/delete-recipe_foods", locals: {recipe: @recipe, ingredient: ing} %></td>
-    </tr>  
+    </tr> 
   <%end%>
 <%end%>
   </tbody>

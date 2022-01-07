@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="d-flex justify-content-between mt-5">
-        <%= render partial: '_partials/buttons/shopping-list', locals: { recipe: @recipe, recipe_foods: @recipe_foods} %>
+        <%= render partial: '_partials/buttons/shopping-list-btn', locals: { recipe: @recipe, recipe_foods: @recipe_foods} %>
         <%if user_signed_in? %>
           <%= render partial: "_partials/modals/ingredient-modal",  locals: { recipe: @recipe} %><br>
         <%end%>

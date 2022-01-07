@@ -12,9 +12,9 @@ RSpec.describe Recipe, type: :model do
   subject do
     Recipe.new(
       name: 'Anything',
-      preparation_time: 30, 
-      cooking_time: 50, 
-      description: "Delicious recipe", 
+      preparation_time: 30,
+      cooking_time: 50,
+      description: 'Delicious recipe',
       public: true,
       user_id: 1
     )
@@ -42,17 +42,17 @@ RSpec.describe Recipe, type: :model do
   end
 
   it 'is not valid with invalid description' do
-    subject.description = ""
+    subject.description = ''
     expect(subject).to_not be_valid
   end
 
-  it "is not valid with negative cooking time" do
+  it 'is not valid with negative cooking time' do
     subject.cooking_time = -2
-    expect(subject).to_not be_valid  
+    expect(subject).to_not be_valid
   end
 
-  it "is not valid with negative preparation time" do
+  it 'is not valid with negative preparation time' do
     subject.preparation_time = -1
-    expect(subject).to_not be_valid  
+    expect(subject).to_not be_valid
   end
 end

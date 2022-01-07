@@ -19,11 +19,11 @@ RSpec.feature 'Recipe Index', type: :feature do
   end
 
   it 'show recipe name' do
-    expect(page).to have_content "Name"
+    expect(page).to have_content 'Name'
   end
 
   it 'show recipe description' do
-    expect(page).to have_content "Description"
+    expect(page).to have_content 'Description'
   end
 
   it 'check the page title' do

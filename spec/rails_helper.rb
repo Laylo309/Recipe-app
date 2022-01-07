@@ -6,6 +6,39 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 
+def login_user
+  @user = User.create(
+    name: 'John Smith',
+    email: 'correct@email.com',
+    password: 'correctpassword'
+  )
+  @recipe = Recipe.create(
+    user_id: @user.id,
+    name: 'Delicious pizza',
+    preparation_time: 50,
+    cooking_time: 90,
+    description: 'oh my good, this is so delicious',
+    public: true
+  )
+  @food = Food.create(
+    name: 'Egg',
+    measurement_unit: 'Unit',
+    price: 1,
+    user_id: @user.id
+  )
+  @ingredient = RecipeFood.create(
+    quantity: '5',
+    created_at: Time.now,
+    updated_at: Time.now,
+    food_id: @food.id,
+    recipe_id: @recipe.id
+  )
+  visit user_session_path
+  fill_in 'Email', with: 'correct@email.com'
+  fill_in 'Password', with: 'correctpassword'
+  click_button 'Log in'
+end
+
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e

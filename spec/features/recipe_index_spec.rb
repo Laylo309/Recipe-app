@@ -1,32 +1,20 @@
 require 'rails_helper'
 
-RSpec.feature 'Recipe Index', type: :feature do
-  before(:each) do
-    @user = User.create(name: 'Name', email: 'user@example.com', password: 'admin123')
-    @recipe = Recipe.create(user_id: @user.id, name: 'Wonderful cake', cooking_time: 5.5, preparation_time: 12.6,
-                            description: 'Description', public: true)
-    visit user_session_path
-    within('form') do
-      fill_in 'user_email', with: 'user@example.com'
-      fill_in 'user_password', with: 'admin123'
-    end
-    click_button 'Log in'
+RSpec.feature 'Recipe index', type: :feature do
+  background do
+    login_user
     visit recipes_path
   end
 
-  it 'show the button of adding a recipe' do
-    expect(page).to have_content 'Create new recipe'
+  scenario 'Should display the created recipe' do
+    expect(page).to have_content('Delicious pizza')
   end
 
-  it 'show recipe name' do
-    expect(page).to have_content 'Name'
+  scenario 'Should display the recipe description' do
+    expect(page).to have_content('oh my good, this is so delicious')
   end
 
-  it 'show recipe description' do
-    expect(page).to have_content 'Description'
-  end
-
-  it 'check the page title' do
-    expect(page).to have_content 'Your List Of Recipes'
+  scenario 'Should display a delete button' do
+    expect(page).to have_content('Remove')
   end
 end

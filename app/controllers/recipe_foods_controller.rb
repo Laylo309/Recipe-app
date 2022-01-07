@@ -1,20 +1,19 @@
 class RecipeFoodsController < ApplicationController
-
   def create
     @recipe = Recipe.find_by_id(params[:recipe_id])
     @recipe_foods = @recipe.recipe_foods.new(
       quantity: params[:quantity],
       food_id: params[:food_id]
     )
-  respond_to do |format|
-    format.html do
-      if @recipe_foods.save
-        flash[:success] = 'Your new Ingredient Successfully Created'
-      else
-        flash[:danger] = "Failed to create this ingredient - #{@recipe_food.errors.full_messages.first}"
+    respond_to do |format|
+      format.html do
+        if @recipe_foods.save
+          flash[:success] = 'Your new Ingredient Successfully Created'
+        else
+          flash[:danger] = "Failed to create this ingredient - #{@recipe_food.errors.full_messages.first}"
+        end
+        redirect_to recipe_path(params[:recipe_id])
       end
-      redirect_to recipe_path(params[:recipe_id])
-    end
     end
   end
 
@@ -27,5 +26,4 @@ class RecipeFoodsController < ApplicationController
     end
     redirect_to recipe_path(params[:recipe_id])
   end
-
 end

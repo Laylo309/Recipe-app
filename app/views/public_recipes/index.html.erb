@@ -1,0 +1,20 @@
+<h1 class= 'has-text-centered m-3 is-size-3 has-text-weight-bold'>Public Recipes<h1>
+
+<% @recipes.each do |recipe|%>
+  <div class= 'card m-5'>
+    <div class= 'card-content'>
+      <div class= 'content m-10'>
+          <div class= 'is-flex is-justify-content-space-between p-3'>
+          <div>
+            <p class='has-text-weight-bold is-size-4'><%= recipe.name%></p>
+            <p class='has-text-weight-semibold is-size-5'>By:<%= recipe.user.name%></p>
+          </div>
+          <div class='has-text-weight-semibold is-size-5'>
+            <p>Total food items: <%= @total_items%></p>
+            <p>Total price: $<%= @total_cost %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>

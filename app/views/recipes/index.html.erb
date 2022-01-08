@@ -1,0 +1,15 @@
+<div class="m-3">
+    <%= render partial: "_partials/modals/recipe-modal" %><br>
+</div>
+<h1 class="m-3">Your List Of Recipes</h1>
+<div class="container">
+  <div class="row">
+    <%if @recipes.empty?%>
+     <p class="m-3 fw-bold">Your recipes list is empty try to add new recipe</p>
+    <%else%>
+      <% @recipes.each do |recipe| %>
+        <%= render "_partials/cards/recipe-card", recipe: recipe %>
+      <% end %>
+  <% end %>
+</div>
+

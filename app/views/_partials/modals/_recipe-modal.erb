@@ -1,0 +1,47 @@
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#recipeModal">
+  New recipe
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="recipeModalLabel">Create new recipe</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <%= form_with scope: :recipe, url: recipes_path, method: :post  do |form| %>
+                <div class="mb-3">
+		            <label for="name" class="form-label">Name</label>
+		            <%= form.text_field :name, required: true, autofocus: true, class: "form-control", id: "name"%>
+	            </div>
+	            <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+		            <%= form.text_area :description, rows: 2, required: true, class: "form-control", id: 'description' %>
+	            </div>
+                <div class="mb-3">
+		            <label for="name" class="form-label">Preparation time (Minutes)</label>
+		            <%= form.text_field :preparation_time, required: true, class: "form-control", id: "preparation_time"%>
+	            </div>
+                <div class="mb-3">
+		            <label for="name" class="form-label">Cooking time (Minutes)</label>
+		            <%= form.text_field :cooking_time, required: true, class: "form-control", id: "cooking_time"%>
+	            </div>
+                
+                <div class="form-check form-switch">
+                    <%= form.check_box :public, class: 'form-check-input' %> Public 
+
+                </div>
+                <br>
+	            <div class="text-end mt-3">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%= form.submit 'Save Recipe', class: "btn btn-success" %>
+            <% end %>
+          </div>   
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

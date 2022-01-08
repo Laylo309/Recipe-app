@@ -40,5 +40,4 @@ RSpec.describe Food, type: :model do
     subject.price = -2
     expect(subject).to_not be_valid
   end
-
 end

@@ -66,9 +66,8 @@ $ rails db:migrate
  </br>
  <div align="center">
     <kbd>
-    <img alt="gif" src="https://user-images.githubusercontent.com/80895497/144337923-8f5660a0-6e8a-4ba4-99a5-c6ab42bb3b73.png" width=90% />
     <img alt="gif" src="https://user-images.githubusercontent.com/78378168/148622425-049b0099-e7b3-41c2-91ab-154a91201f0a.png" width=90% />
-    <p>16 Request Specs passed</p>
+    <p>30 Request Specs passed</p>
        </kbd>
 </div>
 
